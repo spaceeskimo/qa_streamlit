@@ -43,7 +43,7 @@ if __name__ == '__main__':
     # Get new animations from here: https://lottiefiles.com/featured
     lottie_url = "https://assets5.lottiefiles.com/packages/lf20_g1pduE.json"
     lottie_json = load_lottieurl(lottie_url)
-    st_lottie(lottie_json)
+    st_lottie(lottie_json, width=200)
 
 
     st.markdown('**Insert a PROTOCOL.**')
@@ -64,6 +64,9 @@ if __name__ == '__main__':
             str(token_number) +
             ' out of max. 480' +
             '</font>', unsafe_allow_html=True)
+
+        # New line splitting
+        protocol = protocol.replace('\\n', '  \n')
         protocol = re.split('(?=Step)|(?=step)', protocol)
         protocol = '  \n'.join(protocol)
         paragraph_slot.markdown(protocol)
